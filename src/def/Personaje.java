@@ -82,4 +82,20 @@ public class Personaje {
 		
 	}
 	
+	public void agregarInventario(Equipamiento equipamiento) {
+		
+		inventario.add(equipamiento);
+		
+	}
+	
+	public void setProtegido(boolean protegido) {
+		
+		if(this.protegido != protegido) {
+			
+			this.protegido = protegido; //Si esta protegido y lo pones en protegido no hace nada pero si no esta protegido se protege
+			
+		}
+	}
+	
+	
 }
