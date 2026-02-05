@@ -4,10 +4,14 @@ public class Guerrero extends Personaje {
 
 	Personaje companeroProtegido;
 	
+	// Guerrero tiene una vida inicial diferente al resto asi que se especifica cual.
+	int vidaMax;
+	
 	// Usa el mismo constructor que Personaje pero define compañero protegido a null.
 
 	public Guerrero(String nombre, int nivel, int puntosVida, boolean protegido) {
 		super(nombre, nivel, puntosVida, protegido);
+		vidaMax = 200;
 		this.companeroProtegido = null;
 	}
 	
