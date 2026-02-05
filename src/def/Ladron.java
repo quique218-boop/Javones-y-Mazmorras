@@ -2,7 +2,7 @@ package def;
 
 public class Ladron extends Personaje {
 
-	boolean invisible;
+	private boolean invisible;
 
 	// Constructor usa las mismas variables que personaje y pone invisible a falso.
 	
