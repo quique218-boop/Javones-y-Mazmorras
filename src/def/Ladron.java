@@ -10,9 +10,17 @@ public class Ladron extends Personaje {
 	}
 
 	public void robar() {
-		
-		String resultadoRobo = invisible ? "No te han visto robar al ser invisible" : "Te han pillado robando por ser visible";
-		
+
+		String resultadoRobo = this.invisible ? "No te han visto robar al ser invisible" : "Te han pillado robando por ser visible";
+
 		System.out.println(resultadoRobo);
+	}
+
+	void hacerseInvisible() {
+		this.invisible = this.invisible ? false : true;
+	}
+
+	boolean estaInvisible() {
+		return this.invisible;
 	}
 }
