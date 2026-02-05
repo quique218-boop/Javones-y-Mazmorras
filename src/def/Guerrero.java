@@ -9,7 +9,7 @@ public class Guerrero extends Personaje {
 		this.companeroProtegido = null;
 	}
 
-	void proteger(Personaje companero) {
+	public void proteger(Personaje companero) {
 
 		if (this.companeroProtegido == null) {
 
@@ -22,9 +22,13 @@ public class Guerrero extends Personaje {
 		}
 	}
 
-	void dejarDeProteger() {
+	public void dejarDeProteger() {
 		this.companeroProtegido = null;
 
 		System.out.println("Has dejado de protejer a tu compañero");
+	}
+
+	public Personaje estaProtegiendo() {
+		return this.companeroProtegido;
 	}
 }
