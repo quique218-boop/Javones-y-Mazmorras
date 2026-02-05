@@ -3,11 +3,15 @@ package def;
 public class Guerrero extends Personaje {
 
 	Personaje companeroProtegido;
+	
+	// Usa el mismo constructor que Personaje pero define compañero protegido a null.
 
 	public Guerrero(String nombre, int nivel, int puntosVida, boolean protegido) {
 		super(nombre, nivel, puntosVida, protegido);
 		this.companeroProtegido = null;
 	}
+	
+	// Si companeroProtegido es null asigna el nuevo valor al compañero indicado.
 
 	public void proteger(Personaje companero) {
 
@@ -16,17 +20,23 @@ public class Guerrero extends Personaje {
 			this.companeroProtegido = companero;
 
 		} else {
+			
+			// En caso de que no sea null se imprime un texto explicativo.
 
 			System.out.println("Imposible proteger. Ya estas protegiendo a otro compañero");
 
 		}
 	}
 
+	// Cambia el valor a null y envia un texto de advertencia.
+	
 	public void dejarDeProteger() {
 		this.companeroProtegido = null;
 
 		System.out.println("Has dejado de protejer a tu compañero");
 	}
+	
+	// Devuelve a que compañero esta protegiendo o null si no hay ninguno.
 
 	public Personaje estaProtegiendo() {
 		return this.companeroProtegido;
