@@ -12,9 +12,9 @@ public class Guerrero extends Personaje {
 	void proteger(Personaje companero) {
 
 		if (this.companeroProtegido == null) {
-			
+
 			this.companeroProtegido = companero;
-			
+
 		} else {
 
 			System.out.println("Imposible proteger. Ya estas protegiendo a otro compañero");
@@ -22,4 +22,9 @@ public class Guerrero extends Personaje {
 		}
 	}
 
+	void dejarDeProteger() {
+		this.companeroProtegido = null;
+
+		System.out.println("Has dejado de protejer a tu compañero");
+	}
 }
