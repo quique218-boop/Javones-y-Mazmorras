@@ -61,18 +61,20 @@ public abstract class Personaje {
 
 			System.out.println("El ataque no tuvo efecto");
 
-		}else if(puntosVida != 0 && protegido == false) {
+		}else if(protegido == false) {
 
-			puntosVida -= puntosVida - cantidad;			
+			puntosVida -= cantidad;			
 
-		}else if(puntosVida != 0 && protegido == true){
+		}else if(protegido == true){
 
-			cantidad = cantidad / 2; //actualizo daño a la mitad
+			cantidad /=2; //actualizo daño a la mitad
 
-			puntosVida -= puntosVida - cantidad;
+			puntosVida -= cantidad;
 
-		}else {
-
+		}
+		
+		if(puntosVida <= 0){
+			
 			System.out.println("Has muerto");
 
 		}
@@ -91,7 +93,7 @@ public abstract class Personaje {
 
 		}else if(cantidad > 0) {
 
-			puntosVida += puntosVida + cantidad;
+			puntosVida += cantidad;
 
 			System.out.println("Salud restaurada");
 
