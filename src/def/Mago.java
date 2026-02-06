@@ -16,7 +16,7 @@ public class Mago extends Personaje{
 
 		super(nombre); 
 	
-		this.ManaMax = 25;
+		this.ManaMax = 100;
 		
 		this.mana = ManaMax;
 	
@@ -32,9 +32,13 @@ public class Mago extends Personaje{
 		
 		for (int i = 0; i < nivel; i++) {
 			
-			this.vidaMax *= rand.nextInt(dado) + 1;
+			this.vidaMax += rand.nextInt(dado) + 1;
 			
-			this.ManaMax += ManaMax + 20; //Cada vez que se suba de nivel el mana maximo aumentara 20
+			this.ManaMax += 20; //Cada vez que se suba de nivel el mana maximo aumentara 20
+			
+			System.out.println("Su nivel de personaje ha aumentado a nivel " + i + " tus capacidad de vida ha mejorado a " + vidaMax + " y su capacidad de mana ha " + ManaMax);
+			
+			System.out.println("");
 			
 	}
 		
@@ -42,9 +46,9 @@ public class Mago extends Personaje{
 	
 	public void LanzarHechizo(int costeMana) { //Lanzar hechizos
 		
-		if(costeMana < mana) {
+		if(costeMana <= mana) {
 			
-			mana -= mana - costeMana; //Actualizamos mana disponible
+			mana -= costeMana; //Actualizamos mana disponible
 			
 			System.out.println("AVADAKEDABRA");
 			
@@ -70,7 +74,7 @@ public class Mago extends Personaje{
 
 		}else if(cantidad > 0) {
 
-			mana += mana + cantidad;
+			mana += cantidad;
 
 			System.out.println("Su mana ha sido recargado");
 
