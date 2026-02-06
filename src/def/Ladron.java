@@ -20,7 +20,7 @@ public class Ladron extends Personaje {
 
 		int vidaMax = super.getVidaMax();
 
-		subirNivelEnConstructor(nivel, vidaMax, dado);
+		subirNivelEnConstructor(nivel, vidaMax, this.dado);
 
 		this.invisible = false;
 	}

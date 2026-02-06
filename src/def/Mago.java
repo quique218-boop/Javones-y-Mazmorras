@@ -22,9 +22,11 @@ public class Mago extends Personaje{
 
 	}
 
-	public Mago(String nombre, int nivel, int puntosVida, boolean protegido, int mana, Inventario inventario) {
+	public Mago(String nombre, int nivel, Inventario inventario) {
 
 		super(nombre, nivel, inventario); //Le pasamos los parametros de la clase personaje a mago
+		
+		subirNivelEnConstructor(nivel, this.vidaMax, this.dado);
 
 		this.ManaMax = 100; //Mana disponible
 
