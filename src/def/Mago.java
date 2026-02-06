@@ -8,13 +8,35 @@ public class Mago extends Personaje{
 	
 	private int ManaMax;
 	
+	private int vidaMax = super.getvidaMax();
+	
+	private final int dado = 6;
+	
+	public Mago(String nombre) {
+
+		super(nombre); 
+	
+		this.ManaMax = 25;
+		
+		this.mana = ManaMax;
+	
+	}
+	
 	public Mago(String nombre, int nivel, int puntosVida, boolean protegido, int mana) {
 
 		super(nombre, nivel, puntosVida, protegido); //Le pasamos los parametros de la clase personaje a mago
 		
-		this.mana = mana;
-		
 		this.ManaMax = 100; //Mana disponible
+		
+		this.mana = ManaMax; //El mana inicial es igual que el maximo
+		
+		for (int i = 0; i < nivel; i++) {
+			
+			this.vidaMax *= rand.nextInt(dado) + 1;
+			
+			this.ManaMax += ManaMax + 20; //Cada vez que se suba de nivel el mana maximo aumentara 20
+			
+	}
 		
 	}
 	
