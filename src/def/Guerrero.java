@@ -5,7 +5,7 @@ public class Guerrero extends Personaje {
 	private Personaje companeroProtegido;
 	
 	// Guerrero tiene una vida inicial diferente al resto asi que se especifica cual.
-	private int vidaMax = 200;
+	private int vidaMax;
 	private final int dado = 10;
 	
 	// Usa el mismo constructor que Personaje pero define compañero protegido a null.
@@ -18,6 +18,8 @@ public class Guerrero extends Personaje {
 	
 	public Guerrero(String nombre, int nivel, int puntosVida, boolean protegido, Inventario inventario) {
 		super(nombre, nivel, puntosVida, protegido, inventario);
+		
+		this.vidaMax = 200;
 		
 		for (int i = 0; i < nivel; i++) {
 			this.vidaMax *= rand.nextInt(dado) + 1;
