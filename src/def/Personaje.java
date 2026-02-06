@@ -1,6 +1,6 @@
 package def;
 
-public class Personaje {
+public abstract class Personaje {
 
 	private String nombre;
 
