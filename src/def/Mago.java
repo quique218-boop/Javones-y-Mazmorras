@@ -4,8 +4,6 @@ public class Mago extends Personaje{
 
 	private int mana;
 
-	private int cantidadMana;
-
 	private int ManaMax;
 
 	private int vidaMax = super.getVidaMax();
