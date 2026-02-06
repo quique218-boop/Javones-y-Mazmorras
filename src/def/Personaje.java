@@ -113,6 +113,11 @@ public abstract class Personaje {
 		
 		return this.vidaMax;
 	}
+	
+	public void setvidaMax(int vidaMax) {
+		
+		this.vidaMax = vidaMax;
+	}
 
 	public Inventario getInventario() {
 
