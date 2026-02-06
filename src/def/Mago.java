@@ -8,7 +8,7 @@ public class Mago extends Personaje{
 	
 	private int ManaMax;
 	
-	private int vidaMax = super.getvidaMax();
+	private int vidaMax = super.getVidaMax();
 	
 	private final int dado = 6;
 	
@@ -24,7 +24,7 @@ public class Mago extends Personaje{
 	
 	public Mago(String nombre, int nivel, int puntosVida, boolean protegido, int mana, Inventario inventario) {
 
-		super(nombre, nivel, puntosVida, protegido, inventario); //Le pasamos los parametros de la clase personaje a mago
+		super(nombre, nivel, inventario); //Le pasamos los parametros de la clase personaje a mago
 		
 		this.ManaMax = 100; //Mana disponible
 		
