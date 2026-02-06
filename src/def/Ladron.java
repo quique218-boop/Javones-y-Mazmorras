@@ -3,11 +3,23 @@ package def;
 public class Ladron extends Personaje {
 
 	private boolean invisible;
+	//private int vidaMax = super.vidaMax;
+	private final int dado = 8;
 
 	// Constructor usa las mismas variables que personaje y pone invisible a falso.
 	
+	public Ladron(String nombre) {
+		super(nombre);
+		this.invisible = false;
+	}
+	
 	public Ladron(String nombre, int nivel, int puntosVida, boolean protegido) {
 		super(nombre, nivel, puntosVida, protegido);
+		
+		for (int i = 0; i < nivel; i++) {
+			this.vidaMax *= rand.nextInt(dado) + 1;
+		}
+		
 		this.invisible = false;
 	}
 	
