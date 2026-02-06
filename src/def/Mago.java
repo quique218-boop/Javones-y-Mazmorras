@@ -47,6 +47,10 @@ public class Mago extends Personaje{
 					"Subes a nivel " + (i + 1) + " | Vida +" + subidaVida + " | ManaMax " + ManaMax);
 
 			System.out.println("");
+			
+			setVidaMax(getVidaMax() + subidaVida);
+			
+			curar(getVidaMax());
 		}
 
 		this.mana = this.ManaMax;

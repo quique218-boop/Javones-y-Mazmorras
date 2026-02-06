@@ -150,6 +150,12 @@ public abstract class Personaje {
 			System.out.println("Subes a nivel " + (i + 1) + " | Vida +" + subidaVida);
 
 			System.out.println("");
+			
+			this.nivel = nivel;
+			
+			setVidaMax(getVidaMax() + subidaVida);
+			
+			curar(getVidaMax());
 		}
 	}
 	
