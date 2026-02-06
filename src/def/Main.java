@@ -44,6 +44,12 @@ public class Main {
 			case "mago":
 
 				Mago Gandalf = new Mago(nombre);
+				
+				if(opcion.equals("partida personalizada")){
+					
+					Gandalf.setNivelInicial(nivel);
+					
+				}
 
 				System.out.println("Bienvenido gran hechizero que quiere hacer? ");
 
