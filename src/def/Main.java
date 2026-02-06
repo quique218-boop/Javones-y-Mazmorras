@@ -62,8 +62,10 @@ public class Main {
 					System.out.println("2 - Recargar Mana");
 
 					System.out.println("3 - Ver mi Mana");
+					
+					System.out.println("4- Mostrar Info");
 
-					System.out.println("4 - Salir");
+					System.out.println("5 - Salir");
 
 					des = scan.nextInt();
 
@@ -141,6 +143,12 @@ public class Main {
 						break;
 
 					case 4:
+						
+						Gandalf.mostrarInfo();
+						
+						break;
+						
+					case 5:
 
 						System.out.println("");
 						
@@ -150,7 +158,7 @@ public class Main {
 
 					}
 
-				}while(des != 4);
+				}while(des != 5);
 
 				break;
 
@@ -172,7 +180,9 @@ public class Main {
 
 					System.out.println("3 - Mirar a quien has protegido");
 
-					System.out.println("4 - Salir");
+					System.out.println("4- Mostrar Info");
+					
+					System.out.println("5 - Salir");
 
 					des = scan.nextInt();
 
@@ -206,7 +216,13 @@ public class Main {
 
 						break;
 						
-					case 4: 
+					case 4:
+						
+						guerrero1.mostrarInfo();
+						
+						break;
+						
+					case 5: 
 						
 						System.out.println("");
 						
@@ -216,7 +232,7 @@ public class Main {
 						
 					}
 					
-				}while(des != 4);
+				}while(des != 5);
 				
 				break;
 				
@@ -235,8 +251,10 @@ public class Main {
 					System.out.println("2 - Hacerse Invisible");
 
 					System.out.println("3 - Comprobar estado");
+					
+					System.out.println("4- Mostrar Info");
 
-					System.out.println("4 - Salir");
+					System.out.println("5 - Salir");
 
 					des = scan.nextInt();
 
@@ -270,7 +288,13 @@ public class Main {
 						
 						break;
 						
-					case 4:
+					case 4: 
+						
+						ladron.mostrarInfo();
+						
+						break;
+						
+					case 5:
 						
 						System.out.println("");
 						
@@ -280,7 +304,7 @@ public class Main {
 						
 					}
 					
-				}while(des != 4);
+				}while(des != 5);
 				
 				break;
 				
