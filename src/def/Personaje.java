@@ -12,9 +12,9 @@ public class Personaje {
 
 	private boolean protegido;
 
-	private inventario inventario;
+	private Inventario inventario;
 
-	public Personaje(String nombre, int nivel, int puntosVida, boolean protegido) {
+	public Personaje(String nombre, int nivel, int puntosVida, boolean protegido, Inventario inventario) {
 
 		this.nombre = nombre;
 
@@ -84,7 +84,7 @@ public class Personaje {
 
 	}
 
-	public inventario getInventario() {
+	public Inventario getInventario() {
 
 		return inventario;
 
@@ -92,7 +92,7 @@ public class Personaje {
 
 	public void agregarInventario(Equipamiento equipamiento) {
 
-		inventario.add(equipamiento);
+		this.inventario.agregarEquipamiento(equipamiento);
 
 	}
 
