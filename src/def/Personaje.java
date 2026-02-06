@@ -37,19 +37,13 @@ public abstract class Personaje {
 	}
 
 
-	public Personaje(String nombre, int nivel, int puntosVida, boolean protegido, Inventario inventario) {
+	public Personaje(String nombre, int nivel, Inventario inventario) {
 
 		this.nombre = nombre;
 
-		this.nivel = nivel;
-
-		this.puntosVida = puntosVida;
-
-		for (int i = 0; i < nivel; i++) {
-			this.vidaMax *= rand.nextInt(dado) + 1;
-		}
-
-		this.protegido = protegido;
+		subirNivelEnConstructor(nivel, this.vidaMax, dado);
+		
+		this.protegido = false;
 
 		this.inventario = inventario;
 
@@ -57,7 +51,7 @@ public abstract class Personaje {
 
 	public void mostrarInfo() {
 
-		System.out.println("Datos: " + " nombre del heroe: ," + nombre + "\n nivel: ," + nivel + "\n puntos de vida : ," + puntosVida + "estado: ," + protegido + "\n estado de inventario: " + inventario);
+		System.out.println("Datos:\n " + "\nNombre del heroe: " + nombre + "\nNivel: " + nivel + "\nPuntos de vida : " + puntosVida + "\nEstado de protección: " + protegido + "\nInventario: " + inventario);
 
 	}
 
@@ -109,14 +103,27 @@ public abstract class Personaje {
 
 	}
 	
-	public int getvidaMax() {
+	public int getVidaMax() {
 		
 		return this.vidaMax;
 	}
 	
-	public void setvidaMax(int vidaMax) {
+	public void setVidaMax(int vidaMax) {
 		
 		this.vidaMax = vidaMax;
+	}
+	
+	public void subirNivelEnConstructor(int nivel, int vidaMax, int dado) {
+		
+		this.nivel = nivel;
+
+		for (int i = 0; i < nivel; i++) {
+			vidaMax += rand.nextInt(dado) + 1;
+		}
+		
+		this.vidaMax = vidaMax;
+
+		this.puntosVida = this.vidaMax;
 	}
 
 	public Inventario getInventario() {
