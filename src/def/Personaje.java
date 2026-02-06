@@ -1,18 +1,38 @@
 package def;
 
+import java.util.Random;
+
 public abstract class Personaje {
 
+	Random rand = new Random();
+	
 	private String nombre;
 
 	private int nivel;
 
 	private int puntosVida;
 
-	private int VidaMax;
+	private int vidaMax = 100;
 
 	private boolean protegido;
 
 	private inventario inventario;
+	
+	private int dado = 10;
+	
+	public Personaje(String nombre) {
+
+		this.nombre = nombre;
+
+		this.nivel = 1;
+		
+		this.puntosVida = this.vidaMax;
+
+		this.protegido = false;
+
+		this.inventario = null;
+
+	}
 
 	public Personaje(String nombre, int nivel, int puntosVida, boolean protegido) {
 
@@ -22,7 +42,9 @@ public abstract class Personaje {
 
 		this.puntosVida = puntosVida;
 
-		this.VidaMax = 100;
+		for (int i = 0; i < nivel; i++) {
+			this.vidaMax *= rand.nextInt(dado) + 1;
+		}
 
 		this.protegido = protegido;
 
@@ -62,13 +84,13 @@ public abstract class Personaje {
 
 	public void curar(int cantidad) {
 
-		if(puntosVida == VidaMax) {
+		if(puntosVida == vidaMax) {
 
 			System.out.println("Vida al maximo, imposible de hacer el hechizo");
 
-		} else if(puntosVida + cantidad > VidaMax) {
+		} else if(puntosVida + cantidad > vidaMax) {
 
-			this.puntosVida = VidaMax;
+			this.puntosVida = vidaMax;
 
 		}else if(cantidad > 0) {
 
