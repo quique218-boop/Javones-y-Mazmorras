@@ -180,16 +180,59 @@ public class Main {
 				}while(des != 4);
 				
 				
+			case "ladron":
 				
-				}
+				Ladron ladron = new Ladron(nombre);
+				
+				System.out.println("Bienvenido maestro del sigilo elige tu acción ");
+
+				do {
+
+					System.out.println("1 - Robar");
+
+					System.out.println("2 - Hacerse Invisible");
+
+					System.out.println("3 - Comprobar estado");
+
+					System.out.println("4 - Salir");
+
+					des = scan.nextInt();
+
+					switch(des) {
+					
+					case 1:
+						
+						ladron.robar();
+						
+						break;
+						
+					case 2:
+						
+						System.out.println("Ahora me ves, ahora no me ves");
+						
+						ladron.hacerseInvisible();
+						
+						break;
+						
+					case 3:
+						
+						System.out.println("Me puedes ver?");
+						
+						ladron.estaInvisible();
+						
+					case 4:
+						
+						System.out.println("Que no te cojan");
+						
+						break;
+						
+					}
+					
+				}while(des != 4);
+				
 			}
 
-
 		}
-
-
-
-
 
 		scan.close();
 	}
