@@ -6,22 +6,19 @@ public class Ladron extends Personaje {
 
 	// Consigue la vidaMax de la clase padre para poder modificarla aqui.
 
-	private final int dado = 8;
+	private int dado;
 
 	// Constructor usa las mismas variables que personaje y pone invisible a falso.
 
 	public Ladron(String nombre) {
 		super(nombre);
+		this.dado = 8;
 		this.invisible = false;
 	}
 
 	public Ladron(String nombre, int nivel, Inventario inventario) {
-		super(nombre, nivel, inventario);
-
-		int vidaMax = super.getVidaMax();
-
-		subirNivelEnConstructor(nivel, vidaMax, this.dado);
-
+		super(nombre, inventario);
+		this.dado = 8;
 		this.invisible = false;
 	}
 
