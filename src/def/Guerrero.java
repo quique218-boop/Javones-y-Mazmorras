@@ -16,8 +16,8 @@ public class Guerrero extends Personaje {
 		this.companeroProtegido = null;
 	}
 	
-	public Guerrero(String nombre, int nivel, int puntosVida, boolean protegido) {
-		super(nombre, nivel, puntosVida, protegido);
+	public Guerrero(String nombre, int nivel, int puntosVida, boolean protegido, Inventario inventario) {
+		super(nombre, nivel, puntosVida, protegido, inventario);
 		
 		for (int i = 0; i < nivel; i++) {
 			this.vidaMax *= rand.nextInt(dado) + 1;
