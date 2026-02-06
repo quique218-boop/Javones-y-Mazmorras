@@ -41,7 +41,7 @@ public abstract class Personaje {
 
 		this.nombre = nombre;
 
-		subirNivelEnConstructor(nivel, this.vidaMax, dado);
+		subirNivelEnConstructor(nivel, this.vidaMax, this.dado);
 		
 		this.protegido = false;
 
