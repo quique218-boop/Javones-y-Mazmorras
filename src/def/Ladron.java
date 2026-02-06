@@ -3,7 +3,10 @@ package def;
 public class Ladron extends Personaje {
 
 	private boolean invisible;
-	//private int vidaMax = super.vidaMax;
+	
+	// Consigue la vidaMax de la clase padre para poder modificarla aqui.
+	
+	private int vidaMax = super.getvidaMax();
 	private final int dado = 8;
 
 	// Constructor usa las mismas variables que personaje y pone invisible a falso.
