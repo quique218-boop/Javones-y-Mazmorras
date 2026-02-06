@@ -2,6 +2,8 @@ package def;
 import java.util.Scanner;
 
 public class Main {
+	
+	private static final int THUNDER_CLAP = 40, FIREBALL = 15, VINES = 20, ICE_ARROW = 30;
 
 	public static void main(String[] args) {
 
@@ -90,7 +92,7 @@ public class Main {
 
 
 
-
+		scan.close();
 	}
 
 }
