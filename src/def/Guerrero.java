@@ -21,7 +21,7 @@ public class Guerrero extends Personaje {
 	public Guerrero(String nombre, int nivel, Inventario inventario) {
 		super(nombre, nivel, inventario);
 		
-		subirNivelEnConstructor(nivel, this.vidaMax, dado);
+		subirNivelEnConstructor(nivel, this.vidaMax, this.dado);
 		
 		this.companeroProtegido = null;
 	}
