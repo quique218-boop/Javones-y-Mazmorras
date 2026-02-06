@@ -16,7 +16,9 @@ public abstract class Personaje {
 
 	private boolean protegido;
 
-	private inventario inventario;
+
+	private Inventario inventario;
+
 	
 	private int dado = 10;
 	
@@ -34,7 +36,8 @@ public abstract class Personaje {
 
 	}
 
-	public Personaje(String nombre, int nivel, int puntosVida, boolean protegido) {
+
+	public Personaje(String nombre, int nivel, int puntosVida, boolean protegido, Inventario inventario) {
 
 		this.nombre = nombre;
 
@@ -111,7 +114,7 @@ public abstract class Personaje {
 		return this.vidaMax;
 	}
 
-	public inventario getInventario() {
+	public Inventario getInventario() {
 
 		return this.inventario;
 
@@ -119,7 +122,7 @@ public abstract class Personaje {
 
 	public void agregarInventario(Equipamiento equipamiento) {
 
-		inventario.add(equipamiento);
+		this.inventario.agregarEquipamiento(equipamiento);
 
 	}
 
