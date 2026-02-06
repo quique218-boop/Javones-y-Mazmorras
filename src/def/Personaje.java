@@ -105,10 +105,15 @@ public abstract class Personaje {
 		}
 
 	}
+	
+	public int getvidaMax() {
+		
+		return this.vidaMax;
+	}
 
 	public inventario getInventario() {
 
-		return inventario;
+		return this.inventario;
 
 	}
 
