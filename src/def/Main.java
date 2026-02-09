@@ -423,7 +423,7 @@ public class Main {
 
 					System.out.println("");
 
-					System.out.println("Me puedes ver?");
+					System.out.println("Soy invisible?");
 
 					System.out.println(ladron.estaInvisible());
 
