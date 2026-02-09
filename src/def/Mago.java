@@ -4,7 +4,7 @@ public class Mago extends Personaje{
 
 	private int mana;
 
-	private int ManaMax;
+	private int manaMax;
 
 	private int vidaMax = super.getVidaMax();
 
@@ -13,24 +13,46 @@ public class Mago extends Personaje{
 	public Mago(String nombre) {
 
 		super(nombre); 
-
-		this.dado = 6;
 		
-		this.ManaMax = 100;
+		this.manaMax = 100;
 
-		this.mana = ManaMax;
+		this.mana = manaMax;
 
+		super.setDado(this.dado);
 	}
 
 	public Mago(String nombre, Inventario inventario) {
 
 		super(nombre, inventario); //Le pasamos los parametros de la clase personaje a mago
 		
-		this.dado = 6;
-		
-		this.ManaMax = 100; //Mana disponible
+		this.manaMax = 100; //Mana disponible
 
-		this.mana = ManaMax; //El mana inicial es igual que el maximo
+		this.mana = manaMax; //El mana inicial es igual que el maximo
+
+		super.setDado(this.dado);
+	}
+	
+	public int getMana() { //Devuelve cantidad de mana actual
+
+		return mana;
+
+	}
+	
+	public void setMana(int mana) { //Devuelve cantidad de mana actual
+
+		this.mana = mana;
+
+	}
+	
+	public int getManaMax() { //Devuelve cantidad de mana actual
+
+		return mana;
+
+	}
+	
+	public void setManaMax(int manaMax) { //Devuelve cantidad de mana actual
+
+		this.manaMax = manaMax;
 
 	}
 
@@ -41,10 +63,10 @@ public class Mago extends Personaje{
 			int subidaVida = rand.nextInt(dado) + 1; // 1–6 aleatorio
 			this.vidaMax += subidaVida;
 
-			this.ManaMax += 20;
+			this.manaMax += 20;
 
 			System.out.println(
-					"Subes a nivel " + (i + 1) + " | Vida +" + subidaVida + " | ManaMax " + ManaMax);
+					"Subes a nivel " + (i + 1) + " | Vida +" + subidaVida + " | ManaMax " + manaMax);
 
 			System.out.println("");
 			
@@ -53,7 +75,7 @@ public class Mago extends Personaje{
 			curar(getVidaMax());
 		}
 
-		this.mana = this.ManaMax;
+		this.mana = this.manaMax;
 	}
 
 
@@ -75,13 +97,13 @@ public class Mago extends Personaje{
 
 	public void recargarMana(int cantidad) { //Recarga de mana
 
-		if(mana == ManaMax) {
+		if(mana == manaMax) {
 
 			System.out.println("No puedes llenar mas tus reservas de mana!");
 
-		} else if(mana + cantidad > ManaMax) {
+		} else if(mana + cantidad > manaMax) {
 
-			this.mana = ManaMax;
+			this.mana = manaMax;
 
 			System.out.println("Su mana ha sido restaurado");
 
@@ -92,13 +114,5 @@ public class Mago extends Personaje{
 			System.out.println("Su mana ha sido recargado");
 
 		}
-
 	}
-
-	public int getMana() { //Devuelve cantidad de mana actual
-
-		return mana;
-
-	}
-
 }
