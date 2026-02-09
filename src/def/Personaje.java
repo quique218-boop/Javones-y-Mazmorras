@@ -134,7 +134,9 @@ public abstract class Personaje {
 	public void mostrarInfo() {
 
 		System.out.println("Datos:\n " + "\nNombre del heroe: " + nombre + "\nNivel: " + nivel + "\nPuntos de vida : "
-				+ puntosVida + "\nEstado de protección: " + protegido + "\nInventario: " + inventario);
+				+ puntosVida + "\nEstado de protección: " + protegido);
+		
+		inventario.mostrarInventario();
 
 	}
 

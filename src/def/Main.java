@@ -57,6 +57,8 @@ public class Main {
 
 			do {
 
+				System.out.println("");
+				
 				System.out.println("1 - Lanzar Hechizo");
 
 				System.out.println("2 - Recargar Mana");
@@ -160,30 +162,43 @@ public class Main {
 
 					case 1:
 
-						Equipamiento eq = new Equipamiento("baston de madera con una gema roja flotando en el centro", "arma");
+						Gandalf.agregarInventario(new Equipamiento("baston de madera con una gema roja flotando en el centro", "arma"));
 
-						Gandalf.agregarInventario(eq);
+						System.out.println("Lo has obtenido");
 
-						System.out.println("Has obtenido el baston de madera");
+						System.out.println("");
 
+						Gandalf.getInventario().mostrarInventario();
+
+						System.out.println("");
+						
 						break;
 
 					case 2: 
 
-						Equipamiento eq2 = new Equipamiento("Un libro con encantamientos ancestrales", "conocimiento");
+						Gandalf.agregarInventario(new Equipamiento("Un libro con encantamientos ancestrales", "conocimiento"));
 
-						Gandalf.agregarInventario(eq2);
+						System.out.println("Lo has obtenido");
 
-						System.out.println("Has obtenido el libro del conocimiento");
+						System.out.println("");
+
+						Gandalf.getInventario().mostrarInventario();
+						
+						System.out.println("");
+						
 						break;
 
 					case 3: 
 
-						Equipamiento eq3 = new Equipamiento("Una pocion para mejorar tus hechizos", "elixir");
+						Gandalf.agregarInventario(new Equipamiento("Una pocion para mejorar tus hechizos", "elixir"));
 
-						Gandalf.agregarInventario(eq3);
+						System.out.println("Lo has obtenido");
 
-						System.out.println("Has obtenido el elixir de mejora");
+						System.out.println("");
+
+						Gandalf.getInventario().mostrarInventario();
+
+						System.out.println("");
 						
 						break;
 
@@ -213,6 +228,12 @@ public class Main {
 
 			Guerrero guerrero1 = new Guerrero(nombre);
 
+			if(opcion.equals("partida personalizada")){
+
+				guerrero1.setNivelInicial(nivel);
+
+			}
+			
 			Mago compaprueba = new Mago("Voldemort");
 
 			System.out.println("Bienvenido guerrero que quiere hacer?");
@@ -221,6 +242,8 @@ public class Main {
 
 			do {
 
+				System.out.println("");
+				
 				System.out.println("1 - Proteger a compañero");
 
 				System.out.println("2 - Dejar de proteger");
@@ -281,19 +304,45 @@ public class Main {
 
 					case 1:
 
-						Equipamiento eq = new Equipamiento("Una espada de Adamantita", "espada");
+						guerrero1.agregarInventario(new Equipamiento("Una espada de Adamantita", "espada"));
 
+						System.out.println("Has obtenido");
+						
+						System.out.println("");
+						
+						guerrero1.getInventario().mostrarInventario();
+						
+						System.out.println("");
+						
 						break;
 
 					case 2: 
 
-						Equipamiento eq2 = new Equipamiento("Un escudo de madera oscura", "escudo");
+						guerrero1.agregarInventario(new Equipamiento("Un escudo de madera oscura", "escudo"));
 
+						System.out.println("Has obtenido");
+						
+						System.out.println("");
+						
+						guerrero1.getInventario().mostrarInventario();
+						
+						System.out.println("");
+						
 						break;
 
 					case 3: 
 
-						Equipamiento eq3 = new Equipamiento("Una hacha de hierro frio", "hacha de combate");
+						guerrero1.agregarInventario(new Equipamiento("Una hacha de hierro frio", "hacha de combate"));
+
+						System.out.println("Has obtenido");
+						
+						System.out.println("");
+						
+						guerrero1.getInventario().mostrarInventario();
+						
+						System.out.println("");
+						
+						break;
 					}
 
 
@@ -322,12 +371,20 @@ public class Main {
 
 			Ladron ladron = new Ladron(nombre);
 
+			if(opcion.equals("partida personalizada")){
+
+				ladron.setNivelInicial(nivel);
+
+			}
+			
 			System.out.println("Bienvenido maestro del sigilo elige tu acción ");
 
 			System.out.println("");
 
 			do {
 
+				System.out.println("");
+				
 				System.out.println("1 - Robar");
 
 				System.out.println("2 - Hacerse Invisible");
@@ -388,21 +445,47 @@ public class Main {
 
 					case 1:
 
-						Equipamiento eq = new Equipamiento("El anillo de invisibilidad", "amuleto");
+						ladron.agregarInventario(new Equipamiento("El anillo de invisibilidad", "amuleto"));
 
+						System.out.println("Has obtenido");
+						
+						System.out.println("");
+						
+						ladron.getInventario().mostrarInventario();
+						
+						System.out.println("");
+						
 						break;
 
 					case 2: 
 
-						Equipamiento eq2 = new Equipamiento("Los Brazales de Dagas Voladoras", "amuleto");
+						ladron.agregarInventario(new Equipamiento("Los Brazales de Dagas Voladoras", "amuleto"));
 
+						System.out.println("Has obtenido");
+						
+						System.out.println("");
+						
+						ladron.getInventario().mostrarInventario();
+						
+						System.out.println("");
+						
 						break;
 
 					case 3: 
 
-						Equipamiento eq3 = new Equipamiento("El Anillo de Evasión", "amuleto");
+						ladron.agregarInventario(new Equipamiento("El Anillo de Evasión", "amuleto"));
+
+						System.out.println("Has obtenido");
+						
+						System.out.println("");
+						
+						ladron.getInventario().mostrarInventario();
+						
+						System.out.println("");
+						
+						break;
 					}
-					
+
 				case 5: 
 
 					ladron.mostrarInfo();
