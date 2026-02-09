@@ -20,15 +20,13 @@ public class Inventario {
 
 	public void mostrarInventario() {
 		
-		int contador = 1;
 		
 		for(int i = 0; i < equipamiento.size(); i++) {
 			
-			System.out.println("Elemento 1 del Inventario");
+			System.out.println("Elemento "+(i+1)+" del Inventario");
 			System.out.println("");
 			System.out.println("Nombre: "+equipamiento.get(i).getNombre() );
 			System.out.println("Tipo: "+equipamiento.get(i).getTipo());
-			contador++;
 		}
 	}
 	
