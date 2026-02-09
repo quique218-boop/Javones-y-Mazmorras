@@ -1,6 +1,6 @@
 package def;
 
-public class Mago extends Personaje{
+public class Mago extends Personaje {
 
 	private int mana;
 
@@ -10,8 +10,8 @@ public class Mago extends Personaje{
 
 	public Mago(String nombre) {
 
-		super(nombre); 
-		
+		super(nombre);
+
 		this.manaMax = 100;
 
 		this.mana = manaMax;
@@ -21,33 +21,33 @@ public class Mago extends Personaje{
 
 	public Mago(String nombre, Inventario inventario) {
 
-		super(nombre, inventario); //Le pasamos los parametros de la clase personaje a mago
-		
-		this.manaMax = 100; //Mana disponible
+		super(nombre, inventario); // Le pasamos los parametros de la clase personaje a mago
 
-		this.mana = manaMax; //El mana inicial es igual que el maximo
+		this.manaMax = 100; // Mana disponible
+
+		this.mana = manaMax; // El mana inicial es igual que el maximo
 
 		super.setDado(this.dado);
 	}
-	
-	public int getMana() { //Devuelve cantidad de mana actual
+
+	public int getMana() { // Devuelve cantidad de mana actual
 
 		return mana;
 
 	}
-	
+
 	public void setMana(int mana) {
 
 		this.mana = mana;
 
 	}
-	
-	public int getManaMax() { 
+
+	public int getManaMax() {
 
 		return mana;
 
 	}
-	
+
 	public void setManaMax(int manaMax) {
 
 		this.manaMax = manaMax;
@@ -62,55 +62,53 @@ public class Mago extends Personaje{
 
 			this.manaMax += 20;
 
-			System.out.println(
-					"Subes a nivel " + (i + 1) + " | Vida +" + subidaVida + " | ManaMax " + manaMax);
+			System.out.println("Subes a nivel " + (i + 1) + " | Vida +" + subidaVida + " | ManaMax " + manaMax);
 
-			System.out.println("");
-			
+			System.out.println();
+
 			setNivel(nivel);
-			
+
 			setVidaMax(getVidaMax() + subidaVida);
-			
+
 			curar(getVidaMax());
 		}
 
 		this.mana = this.manaMax;
 	}
 
+	public void LanzarHechizo(int costeMana) { // Lanzar hechizos
 
-	public void LanzarHechizo(int costeMana) { //Lanzar hechizos
+		if (costeMana <= mana) {
 
-		if(costeMana <= mana) {
+			mana -= costeMana; // Actualizamos mana disponible
 
-			mana -= costeMana; //Actualizamos mana disponible
+			System.out.println("AVADAKEDABRA\n");
 
-			System.out.println("AVADAKEDABRA");
+		} else {
 
-		}else {
-
-			System.out.println("No tienes suficiente mana");
+			System.out.println("No tienes suficiente mana\n");
 
 		}
 
 	}
 
-	public void recargarMana(int cantidad) { //Recarga de mana
+	public void recargarMana(int cantidad) { // Recarga de mana
 
-		if(mana == manaMax) {
+		if (mana == manaMax) {
 
-			System.out.println("No puedes llenar mas tus reservas de mana!");
+			System.out.println("No puedes llenar mas tus reservas de mana!\n");
 
-		} else if(mana + cantidad > manaMax) {
+		} else if (mana + cantidad > manaMax) {
 
 			this.mana = manaMax;
 
-			System.out.println("Su mana ha sido restaurado");
+			System.out.println("Su mana ha sido restaurado\n");
 
-		}else if(cantidad > 0) {
+		} else if (cantidad > 0) {
 
 			mana += cantidad;
 
-			System.out.println("Su mana ha sido recargado");
+			System.out.println("Su mana ha sido recargado\n");
 
 		}
 	}

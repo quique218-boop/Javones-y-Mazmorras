@@ -35,7 +35,7 @@ public class Guerrero extends Personaje {
 			
 			// En caso de que no sea null se imprime un texto explicativo.
 
-			System.out.println("Imposible proteger. Ya estas protegiendo a otro compañero");
+			System.out.println("Imposible proteger. Ya estas protegiendo a otro compañero\n");
 
 		}
 	}
@@ -45,7 +45,7 @@ public class Guerrero extends Personaje {
 	public void dejarDeProteger() {
 		this.companeroProtegido = null;
 
-		System.out.println("Has dejado de protejer a tu compañero");
+		System.out.println("Has dejado de protejer a tu compañero\n");
 	}
 	
 	// Devuelve a que compañero esta protegiendo o null si no hay ninguno.

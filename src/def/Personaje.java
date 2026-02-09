@@ -18,8 +18,6 @@ public abstract class Personaje {
 	private boolean protegido;
 
 	private Inventario inventario;
-	
-	
 
 	private int dado;
 
@@ -36,7 +34,7 @@ public abstract class Personaje {
 		this.protegido = false;
 
 		this.inventario = new Inventario(new ArrayList<Equipamiento>());
-		
+
 		this.dado = 10;
 
 	}
@@ -54,10 +52,10 @@ public abstract class Personaje {
 		this.protegido = false;
 
 		this.inventario = inventario;
-		
+
 		this.dado = 10;
 	}
-	
+
 	public String getNombre() {
 
 		return this.nombre;
@@ -67,6 +65,7 @@ public abstract class Personaje {
 
 		this.nombre = nombre;
 	}
+
 	public int getNivel() {
 
 		return this.nivel;
@@ -76,6 +75,7 @@ public abstract class Personaje {
 
 		this.nivel = nivel;
 	}
+
 	public int getPuntosVida() {
 
 		return this.puntosVida;
@@ -85,17 +85,17 @@ public abstract class Personaje {
 
 		this.puntosVida = puntosVida;
 	}
-	
+
 	public int getVidaMax() {
 
 		return this.vidaMax;
 	}
-	
+
 	public void setVidaMax(int vidaMax) {
 
 		this.vidaMax = vidaMax;
 	}
-	
+
 	public boolean getProtegido() {
 
 		return this.protegido;
@@ -110,7 +110,7 @@ public abstract class Personaje {
 
 		}
 	}
-	
+
 	public Inventario getInventario() {
 
 		return this.inventario;
@@ -122,11 +122,11 @@ public abstract class Personaje {
 		this.inventario.agregarEquipamiento(equipamiento);
 
 	}
-	
+
 	public int getDado() {
 		return this.dado;
 	}
-	
+
 	public void setDado(int dado) {
 		this.dado = dado;
 	}
@@ -135,7 +135,7 @@ public abstract class Personaje {
 
 		System.out.println("Datos:\n " + "\nNombre del heroe: " + nombre + "\nNivel: " + nivel + "\nPuntos de vida : "
 				+ puntosVida + "\nEstado de protección: " + protegido);
-		
+
 		inventario.mostrarInventario();
 
 	}
@@ -198,12 +198,12 @@ public abstract class Personaje {
 
 			System.out.println("Subes a nivel " + (i + 1) + " | Vida +" + subidaVida);
 
-			System.out.println("");
-			
+			System.out.println();
+
 			this.nivel = nivel;
-			
+
 			this.vidaMax += subidaVida;
-			
+
 			this.puntosVida = vidaMax;
 		}
 	}
