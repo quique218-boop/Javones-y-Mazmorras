@@ -3,23 +3,20 @@ package def;
 public class Ladron extends Personaje {
 
 	private boolean invisible;
-
-	// Consigue la vidaMax de la clase padre para poder modificarla aqui.
-
 	private int dado;
 
 	// Constructor usa las mismas variables que personaje y pone invisible a falso.
 
 	public Ladron(String nombre) {
 		super(nombre);
-		this.dado = 8;
 		this.invisible = false;
+		super.setDado(8);
 	}
 
 	public Ladron(String nombre, int nivel, Inventario inventario) {
 		super(nombre, inventario);
-		this.dado = 8;
 		this.invisible = false;
+		super.setDado(8);
 	}
 
 	// Si esta invisible devuelve el primer texto, de lo contrario, el segundo.

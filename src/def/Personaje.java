@@ -18,7 +18,7 @@ public abstract class Personaje {
 
 	private Inventario inventario;
 
-	private int dado = 10;
+	private int dado;
 
 	public Personaje(String nombre) {
 
@@ -33,6 +33,8 @@ public abstract class Personaje {
 		this.protegido = false;
 
 		this.inventario = null;
+		
+		this.dado = 10;
 
 	}
 
@@ -49,7 +51,81 @@ public abstract class Personaje {
 		this.protegido = false;
 
 		this.inventario = inventario;
+		
+		this.dado = 10;
+	}
+	
+	public String getNombre() {
 
+		return this.nombre;
+	}
+
+	public void setNombre(String nombre) {
+
+		this.nombre = nombre;
+	}
+	public int getNivel() {
+
+		return this.nivel;
+	}
+
+	public void setNivel(int nivel) {
+
+		this.nivel = nivel;
+	}
+	public int getPuntosVida() {
+
+		return this.puntosVida;
+	}
+
+	public void setPuntosVida(int puntosVida) {
+
+		this.puntosVida = puntosVida;
+	}
+	
+	public int getVidaMax() {
+
+		return this.vidaMax;
+	}
+	
+	public void setVidaMax(int vidaMax) {
+
+		this.vidaMax = vidaMax;
+	}
+	
+	public boolean getProtegido() {
+
+		return this.protegido;
+	}
+
+	public void setProtegido(boolean protegido) {
+
+		if (this.protegido != protegido) {
+
+			this.protegido = protegido; // Si esta protegido y lo pones en protegido no hace nada pero si no esta
+										// protegido se protege
+
+		}
+	}
+	
+	public Inventario getInventario() {
+
+		return this.inventario;
+
+	}
+
+	public void agregarInventario(Equipamiento equipamiento) {
+
+		this.inventario.agregarEquipamiento(equipamiento);
+
+	}
+	
+	public int getDado() {
+		return this.dado;
+	}
+	
+	public void setDado(int dado) {
+		this.dado = dado;
 	}
 
 	public void mostrarInfo() {
@@ -109,38 +185,6 @@ public abstract class Personaje {
 
 	}
 
-	public int getVidaMax() {
-
-		return this.vidaMax;
-	}
-
-	public void setVidaMax(int vidaMax) {
-
-		this.vidaMax = vidaMax;
-	}
-
-	public Inventario getInventario() {
-
-		return this.inventario;
-
-	}
-
-	public void agregarInventario(Equipamiento equipamiento) {
-
-		this.inventario.agregarEquipamiento(equipamiento);
-
-	}
-
-	public void setProtegido(boolean protegido) {
-
-		if (this.protegido != protegido) {
-
-			this.protegido = protegido; // Si esta protegido y lo pones en protegido no hace nada pero si no esta
-										// protegido se protege
-
-		}
-	}
-
 	public void setNivelInicial(int nivel, int dado) {
 
 		for (int i = 1; i < nivel; i++) {
@@ -157,9 +201,5 @@ public abstract class Personaje {
 			
 			curar(getVidaMax());
 		}
-	}
-	
-	public int getDado() {
-		return this.dado;
 	}
 }
