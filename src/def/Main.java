@@ -13,11 +13,14 @@ public class Main {
 
 	private static Ladron LADRON = null;
 
+	private static Scanner scanL = new Scanner(System.in);
+	private static Scanner scanN = new Scanner(System.in);
+
 	public static void main(String[] args) {
 
-		Scanner scan = new Scanner(System.in);
+		int des = 0;
 
-		int des;
+		int arma = 0;
 
 		int nivel = 1;
 
@@ -29,28 +32,45 @@ public class Main {
 
 		System.out.println("PARTIDA PERSONALIZADA");
 
-		String opcion = scan.nextLine().toLowerCase();
+		String opcion = "";
+
+		while (!opcion.equalsIgnoreCase("PARTIDA POR DEFECTO") && !opcion.equalsIgnoreCase("PARTIDA PERSONALIZADA")) opcion = scanL.nextLine().toLowerCase();
 
 		System.out.println("\nComo te llamas aventurero?");
 
-		String nombre = scan.nextLine();
+		String nombre = "";
+
+		String respuesta = "";
+
+		while (!respuesta.equalsIgnoreCase("Y")) {
+
+			nombre = scanL.nextLine();
+
+			System.out.println("Su nombre sera: " + nombre + "\n Estas seguro? (Y)");
+
+			respuesta = scanL.nextLine();
+
+			if (!respuesta.equalsIgnoreCase("Y")) System.out.println("Introduzca otro nombre: ");
+
+		}
 
 		System.out.println("\nQue clase eres?\n\n Guerrero\n Mago\n Ladron");
 
-		String clase = scan.nextLine().toLowerCase();
+		String clase = "";
+
+		while (!clase.equalsIgnoreCase("Guerrero") && !clase.equalsIgnoreCase("Mago") && !clase.equalsIgnoreCase("Ladron")) clase = scanL.nextLine().toLowerCase();
 
 		if (opcion.equals("partida personalizada")) {
 
 			System.out.println("\nQue nivel posees aventurero");
 
-			nivel = scan.nextInt();
+			nivel = LeerInt();
 
 			System.out.println("\nCon que item quieres empezar?");
 
-			System.out.println(
-					"\n1 - Una pocion para mejorar tus hechizos\n2 - Un escudo de madera oscura\n3 - El anillo de invisibilidad");
+			System.out.println("\n1 - Una pocion para mejorar tus hechizos\n2 - Un escudo de madera oscura\n3 - El anillo de invisibilidad");
 
-			int eleccionItem = scan.nextInt();
+			int eleccionItem = Opciones(3);
 
 			Inventario inv = new Inventario(new ArrayList<Equipamiento>());
 
@@ -149,9 +169,7 @@ public class Main {
 
 				System.out.println("6 - Salir\n");
 
-				des = scan.nextInt();
-
-				scan.nextLine();
+				des = Opciones(6);
 
 				switch (des) {
 
@@ -161,7 +179,10 @@ public class Main {
 
 					int coste = 0;
 
-					String hech = scan.nextLine().toLowerCase();
+					String hech = "";
+
+					while (!hech.equalsIgnoreCase("fireball") && !hech.equalsIgnoreCase("thunderclap")
+							&& !hech.equalsIgnoreCase("vines") && !hech.equalsIgnoreCase("ice arrow")) hech = scanL.nextLine().toLowerCase();
 
 					switch (hech) {
 
@@ -201,7 +222,7 @@ public class Main {
 
 					System.out.println("Cuanto quieres recargar?");
 
-					int rec = scan.nextInt();
+					int rec = LeerInt();
 
 					GANDALF.recargarMana(rec);
 
@@ -221,26 +242,23 @@ public class Main {
 
 					System.out.println("No era un Mimic menos mal, te acercas a ver que esta dentro");
 
-					System.out.println(
-							"\nDentro te encuentras: \n 1 - Un baston de madera con una gema roja flotando en el centro \n 2 - Un libro con encantamientos ancestrales \n 3-  Una pocion para mejorar tus hechizos");
+					System.out.println("\nDentro te encuentras: \n 1 - Un baston de madera con una gema roja flotando en el centro \n 2 - Un libro con encantamientos ancestrales \n 3-  Una pocion para mejorar tus hechizos");
 
 					System.out.println("\nQue quieres elegir? ");
 
-					int arma = scan.nextInt();
+					arma = Opciones(3);
 
 					switch (arma) {
 
 					case 1:
 
-						GANDALF.agregarInventario(
-								new Equipamiento("baston de madera con una gema roja flotando en el centro", "arma"));
+						GANDALF.agregarInventario(new Equipamiento("baston de madera con una gema roja flotando en el centro", "arma"));
 
 						break;
 
 					case 2:
 
-						GANDALF.agregarInventario(
-								new Equipamiento("Un libro con encantamientos ancestrales", "conocimiento"));
+						GANDALF.agregarInventario(new Equipamiento("Un libro con encantamientos ancestrales", "conocimiento"));
 
 						break;
 
@@ -294,7 +312,7 @@ public class Main {
 
 				System.out.println("6 - Salir\n");
 
-				des = scan.nextInt();
+				des = Opciones(6);
 
 				switch (des) {
 
@@ -302,12 +320,7 @@ public class Main {
 
 					GUERRERO.proteger(compaprueba);
 
-					System.out.println(
-							"El guerrero levanta su escudo frente a " + GUERRERO.estaProtegiendo().getNombre()); // Mostramos
-																													// a
-																													// quien
-																													// estamos
-																													// protegiendo
+					System.out.println("El guerrero levanta su escudo frente a " + GUERRERO.estaProtegiendo().getNombre()); // Mostramos a quien estamos protegiendo
 
 					break;
 
@@ -331,12 +344,11 @@ public class Main {
 
 					System.out.println("No era un Mimic menos mal, te acercas a ver que esta dentro");
 
-					System.out.println(
-							"\nDentro te encuentras: \n 1 - Una espada de Adamantita \n 2 - Un escudo de madera oscura \n 3-  Una hacha de hierro frio");
+					System.out.println("\nDentro te encuentras: \n 1 - Una espada de Adamantita \n 2 - Un escudo de madera oscura \n 3-  Una hacha de hierro frio");
 
 					System.out.println("\nQue quieres elegir? ");
 
-					int arma = scan.nextInt();
+					arma = Opciones(3);
 
 					switch (arma) {
 
@@ -399,7 +411,7 @@ public class Main {
 
 				System.out.println("6 - Salir\n");
 
-				des = scan.nextInt();
+				des = Opciones(6);
 
 				switch (des) {
 
@@ -431,12 +443,11 @@ public class Main {
 
 					System.out.println("No era un Mimic menos mal, te acercas a ver que esta dentro");
 
-					System.out.println(
-							"\nDentro te encuentras: \n 1 - El anillo de invisibilidad \n 2 - Los Brazales de Dagas Voladoras \n 3-  El Anillo de Evasión");
+					System.out.println("\nDentro te encuentras: \n 1 - El anillo de invisibilidad \n 2 - Los Brazales de Dagas Voladoras \n 3-  El Anillo de Evasión");
 
 					System.out.println("\nQue quieres elegir? ");
 
-					int arma = scan.nextInt();
+					arma = Opciones(3);
 
 					switch (arma) {
 
@@ -482,7 +493,38 @@ public class Main {
 			break;
 		}
 
-		scan.close();
+		scanL.close();
+		scanN.close();
+
+	}
+
+	private static int LeerInt() {
+
+		while (true) {
+
+			if (scanN.hasNextInt()) {
+
+				int nivel;
+
+				if ((nivel = scanN.nextInt()) > 0)
+					return nivel;
+
+			} else {
+
+				scanN.next();
+
+			}
+		}
+	}
+
+	private static int Opciones(int numeroDeOpciones) {
+
+		int opcion = 0;
+
+		while (!(opcion > 0 && opcion <= numeroDeOpciones))
+			opcion = LeerInt();
+
+		return opcion;
 
 	}
 }
