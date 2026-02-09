@@ -10,6 +10,8 @@ public class Main {
 		Scanner scan = new Scanner(System.in);
 
 		int des;
+		
+		int nivel = 1;
 
 		System.out.println("Bienvenidos a JAVONES Y MAZMORRAS");
 
@@ -21,10 +23,6 @@ public class Main {
 
 		String opcion = scan.nextLine().toLowerCase();
 
-		switch(opcion) {
-
-		case "partida por defecto":
-
 			System.out.println("Como te llamas aventurero?");
 
 			String nombre = scan.nextLine();
@@ -32,15 +30,31 @@ public class Main {
 			System.out.println("Que clase eres? \n Guerrero \n Mago \n Ladron");
 
 			String clase = scan.nextLine().toLowerCase();
+			
+			if(opcion.equals("partida personalizada")) {
+				
+				System.out.println("Que nivel posees aventurero");
+				
+				nivel = scan.nextInt();
+				
+			}
 
 			switch(clase) {
 
 			case "mago":
 
 				Mago Gandalf = new Mago(nombre);
+				
+				if(opcion.equals("partida personalizada")){
+					
+					Gandalf.setNivelInicial(nivel);
+					
+				}
 
 				System.out.println("Bienvenido gran hechizero que quiere hacer? ");
 
+				System.out.println("");
+				
 				do {
 
 					System.out.println("1 - Lanzar Hechizo");
@@ -48,20 +62,27 @@ public class Main {
 					System.out.println("2 - Recargar Mana");
 
 					System.out.println("3 - Ver mi Mana");
+					
+					System.out.println("4- Mostrar Info");
 
-					System.out.println("4 - Salir");
+					System.out.println("5 - Salir");
 
 					des = scan.nextInt();
 
+					scan.nextLine();
+					
 					switch(des) {
 
 					case 1:
-
+						
 						System.out.println("Que hechizo quere lanzar \n Fireball \n Thunderclap \n Vines \n Ice Arrow");
 
+						System.out.println("");
+						
 						int coste = 0;
 
-						String hech = scan.nextLine().toLowerCase();	
+						String hech = scan.nextLine().toLowerCase();
+						
 
 						switch(hech) {
 
@@ -91,12 +112,16 @@ public class Main {
 
 						}
 
+						System.out.println("");
+						
 						Gandalf.LanzarHechizo(coste);
 
 						break;
 
 					case 2:
 
+						System.out.println("");
+						
 						System.out.println("Preparate para recargar");
 
 						System.out.println("Cuanto quieres recargar?");
@@ -109,6 +134,8 @@ public class Main {
 
 					case 3: 
 
+						System.out.println("");
+						
 						System.out.println("Nos adentramos en nuestras reservas");
 
 						System.out.println(Gandalf.getMana());
@@ -116,15 +143,24 @@ public class Main {
 						break;
 
 					case 4:
+						
+						Gandalf.mostrarInfo();
+						
+						break;
+						
+					case 5:
 
+						System.out.println("");
+						
 						System.out.println("Buen Viaje");
 
 						break;
 
 					}
 
-				}while(des != 4);
+				}while(des != 5);
 
+				break;
 
 			case "guerrero":
 
@@ -134,14 +170,19 @@ public class Main {
 
 				System.out.println("Bienvenido guerrero que quiere hacer?");
 
+				System.out.println("");
+				
 				do {
+					
 					System.out.println("1 - Proteger a compañero");
 
 					System.out.println("2 - Dejar de proteger");
 
 					System.out.println("3 - Mirar a quien has protegido");
 
-					System.out.println("4 - Salir");
+					System.out.println("4- Mostrar Info");
+					
+					System.out.println("5 - Salir");
 
 					des = scan.nextInt();
 
@@ -149,6 +190,8 @@ public class Main {
 
 					case 1:
 
+						System.out.println("");
+						
 						guerrero1.proteger(compaprueba);
 
 						System.out.println("El guerrero levanta su escudo frente a " + guerrero1.estaProtegiendo()); //Mostramos que mostramos proteger y esta protegiendo
@@ -157,6 +200,8 @@ public class Main {
 
 					case 2:
 
+						System.out.println("");
+						
 						guerrero1.dejarDeProteger();
 
 						System.out.println(guerrero1.estaProtegiendo());
@@ -165,11 +210,21 @@ public class Main {
 
 					case 3: 
 
+						System.out.println("");
+						
 						System.out.println("Actualmente estas protegiendo a : " + guerrero1.estaProtegiendo());
 
 						break;
 						
-					case 4: 
+					case 4:
+						
+						guerrero1.mostrarInfo();
+						
+						break;
+						
+					case 5: 
+						
+						System.out.println("");
 						
 						System.out.println("Adios caballero");
 						
@@ -177,8 +232,9 @@ public class Main {
 						
 					}
 					
-				}while(des != 4);
+				}while(des != 5);
 				
+				break;
 				
 			case "ladron":
 				
@@ -186,6 +242,8 @@ public class Main {
 				
 				System.out.println("Bienvenido maestro del sigilo elige tu acción ");
 
+				System.out.println("");
+				
 				do {
 
 					System.out.println("1 - Robar");
@@ -193,8 +251,10 @@ public class Main {
 					System.out.println("2 - Hacerse Invisible");
 
 					System.out.println("3 - Comprobar estado");
+					
+					System.out.println("4- Mostrar Info");
 
-					System.out.println("4 - Salir");
+					System.out.println("5 - Salir");
 
 					des = scan.nextInt();
 
@@ -202,11 +262,15 @@ public class Main {
 					
 					case 1:
 						
+						System.out.println("");
+						
 						ladron.robar();
 						
 						break;
 						
 					case 2:
+						
+						System.out.println("");
 						
 						System.out.println("Ahora me ves, ahora no me ves");
 						
@@ -216,11 +280,23 @@ public class Main {
 						
 					case 3:
 						
+						System.out.println("");
+						
 						System.out.println("Me puedes ver?");
 						
-						ladron.estaInvisible();
+						System.out.println(ladron.estaInvisible());
 						
-					case 4:
+						break;
+						
+					case 4: 
+						
+						ladron.mostrarInfo();
+						
+						break;
+						
+					case 5:
+						
+						System.out.println("");
 						
 						System.out.println("Que no te cojan");
 						
@@ -228,13 +304,14 @@ public class Main {
 						
 					}
 					
-				}while(des != 4);
+				}while(des != 5);
+				
+				break;
 				
 			}
 
-		}
-
 		scan.close();
+		
 	}
-
+	
 }

@@ -3,29 +3,25 @@ package def;
 public class Ladron extends Personaje {
 
 	private boolean invisible;
-	
+
 	// Consigue la vidaMax de la clase padre para poder modificarla aqui.
-	
-	private int vidaMax = super.getvidaMax();
-	private final int dado = 8;
+
+	private int dado;
 
 	// Constructor usa las mismas variables que personaje y pone invisible a falso.
-	
+
 	public Ladron(String nombre) {
 		super(nombre);
+		this.dado = 8;
 		this.invisible = false;
 	}
-	
-	public Ladron(String nombre, int nivel, int puntosVida, boolean protegido, Inventario inventario) {
-		super(nombre, nivel, puntosVida, protegido, inventario);
-		
-		for (int i = 0; i < nivel; i++) {
-			this.vidaMax *= rand.nextInt(dado) + 1;
-		}
-		
+
+	public Ladron(String nombre, int nivel, Inventario inventario) {
+		super(nombre, inventario);
+		this.dado = 8;
 		this.invisible = false;
 	}
-	
+
 	// Si esta invisible devuelve el primer texto, de lo contrario, el segundo.
 
 	public void robar() {
@@ -34,15 +30,16 @@ public class Ladron extends Personaje {
 
 		System.out.println(resultadoRobo);
 	}
-	
-	// Invierte el valor actual de invisible. Si es falso ==> verdadero. Si es verdadero ==> falso.
+
+	// Invierte el valor actual de invisible. Si es falso ==> verdadero. Si es
+	// verdadero ==> falso.
 
 	void hacerseInvisible() {
 		this.invisible = this.invisible ? false : true;
 	}
 
 	// Devuelve el valor actual de invisible.
-	
+
 	boolean estaInvisible() {
 		return this.invisible;
 	}
