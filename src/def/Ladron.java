@@ -13,7 +13,7 @@ public class Ladron extends Personaje {
 		super.setDado(this.dado);
 	}
 
-	public Ladron(String nombre, int nivel, Inventario inventario) {
+	public Ladron(String nombre, Inventario inventario) {
 		super(nombre, inventario);
 		this.invisible = false;
 		super.setDado(this.dado);

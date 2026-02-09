@@ -6,8 +6,6 @@ public class Mago extends Personaje{
 
 	private int manaMax;
 
-	private int vidaMax = super.getVidaMax();
-
 	private int dado = 6;
 
 	public Mago(String nombre) {
@@ -38,19 +36,19 @@ public class Mago extends Personaje{
 
 	}
 	
-	public void setMana(int mana) { //Devuelve cantidad de mana actual
+	public void setMana(int mana) {
 
 		this.mana = mana;
 
 	}
 	
-	public int getManaMax() { //Devuelve cantidad de mana actual
+	public int getManaMax() { 
 
 		return mana;
 
 	}
 	
-	public void setManaMax(int manaMax) { //Devuelve cantidad de mana actual
+	public void setManaMax(int manaMax) {
 
 		this.manaMax = manaMax;
 
@@ -60,8 +58,7 @@ public class Mago extends Personaje{
 
 		for (int i = 1; i < nivel; i++) {
 
-			int subidaVida = rand.nextInt(dado) + 1; // 1–6 aleatorio
-			this.vidaMax += subidaVida;
+			int subidaVida = rand.nextInt(getDado()) + 1; // 1–6 aleatorio
 
 			this.manaMax += 20;
 
@@ -69,6 +66,8 @@ public class Mago extends Personaje{
 					"Subes a nivel " + (i + 1) + " | Vida +" + subidaVida + " | ManaMax " + manaMax);
 
 			System.out.println("");
+			
+			setNivel(nivel);
 			
 			setVidaMax(getVidaMax() + subidaVida);
 			

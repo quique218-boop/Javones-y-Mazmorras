@@ -185,11 +185,11 @@ public abstract class Personaje {
 
 	}
 
-	public void setNivelInicial(int nivel, int dado) {
+	public void setNivelInicial(int nivel) {
 
 		for (int i = 1; i < nivel; i++) {
 
-			int subidaVida = rand.nextInt(dado) + 1; // 1–6 aleatorio
+			int subidaVida = rand.nextInt(this.dado) + 1;
 
 			System.out.println("Subes a nivel " + (i + 1) + " | Vida +" + subidaVida);
 
@@ -197,9 +197,9 @@ public abstract class Personaje {
 			
 			this.nivel = nivel;
 			
-			setVidaMax(getVidaMax() + subidaVida);
+			this.vidaMax += subidaVida;
 			
-			curar(getVidaMax());
+			this.puntosVida = vidaMax;
 		}
 	}
 }

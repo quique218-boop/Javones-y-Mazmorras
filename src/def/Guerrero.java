@@ -16,7 +16,7 @@ public class Guerrero extends Personaje {
 		this.companeroProtegido = null;
 	}
 	
-	public Guerrero(String nombre, int nivel, Inventario inventario) {
+	public Guerrero(String nombre, Inventario inventario) {
 		super(nombre, inventario);
 		super.setVidaMax(this.vidaMax);
 		super.curar(this.vidaMax);
