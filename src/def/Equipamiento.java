@@ -1,5 +1,6 @@
 package def;
 
+
 public class Equipamiento {
 	
 	private String nombre;
@@ -12,6 +13,10 @@ public class Equipamiento {
 	
 	public String getNombre() {
 		return nombre;
+	}
+	
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 	
 	public String getTipo() {
