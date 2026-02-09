@@ -1,5 +1,6 @@
 package def;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public abstract class Personaje {
@@ -17,6 +18,8 @@ public abstract class Personaje {
 	private boolean protegido;
 
 	private Inventario inventario;
+	
+	
 
 	private int dado;
 
@@ -32,7 +35,7 @@ public abstract class Personaje {
 
 		this.protegido = false;
 
-		this.inventario = null;
+		this.inventario = new Inventario(new ArrayList<Equipamiento>());
 		
 		this.dado = 10;
 
