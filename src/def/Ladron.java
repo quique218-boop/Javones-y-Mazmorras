@@ -2,12 +2,12 @@ package def;
 
 public class Ladron extends Personaje {
 
-	private boolean invisible;
-	private int dado = 8;
+	private boolean invisible; //Booleano de si esta invisible
+	private int dado = 8; //Valor maximo del dado para el ladron
 
 	// Constructor usa las mismas variables que personaje y pone invisible a falso.
 
-	public Ladron(String nombre) {
+	public Ladron(String nombre) { 
 		super(nombre);
 		this.invisible = false;
 		super.setDado(this.dado);

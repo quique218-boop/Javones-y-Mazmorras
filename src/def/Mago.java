@@ -2,6 +2,8 @@ package def;
 
 public class Mago extends Personaje {
 
+	//Declaramos variables para mago
+	
 	private int mana;
 
 	private int manaMax;

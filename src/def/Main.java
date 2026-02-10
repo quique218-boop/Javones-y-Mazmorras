@@ -5,9 +5,11 @@ import java.util.Scanner;
 
 public class Main {
 
-	private static final int THUNDERCLAP = 40, FIREBALL = 15, VINES = 20, ICE_ARROW = 30;
+	private static final int THUNDERCLAP = 40, FIREBALL = 15, VINES = 20, ICE_ARROW = 30; //Lista de hechizos del mago con su coste
 
-	private static Mago GANDALF = null;
+	//Declaramos las clases vacias
+
+	private static Mago GANDALF = null; 
 
 	private static Guerrero GUERRERO = null;
 
@@ -17,6 +19,8 @@ public class Main {
 	private static Scanner scanN = new Scanner(System.in);
 
 	public static void main(String[] args) {
+
+		//Declaramos variables 
 
 		int des = 0;
 
@@ -28,9 +32,11 @@ public class Main {
 
 		System.out.println("Que tipo de aventura quieres?\n");
 
+		//Opciones de partida
+
 		System.out.println("PARTIDA POR DEFECTO");
 
-		System.out.println("PARTIDA PERSONALIZADA");
+		System.out.println("PARTIDA PERSONALIZADA"); //Funcion extra de eleccion de nivel y opcion de tener un objeto inicial
 
 		String opcion = "";
 
@@ -42,11 +48,11 @@ public class Main {
 
 		String respuesta = "";
 
-		while (!respuesta.equalsIgnoreCase("Y")) {
+		while (!respuesta.equalsIgnoreCase("Y")) { 
 
 			nombre = scanL.nextLine();
 
-			System.out.println("Su nombre sera: " + nombre + "\n Estas seguro? (Y)");
+			System.out.println("Su nombre sera: " + nombre + "\n Estas seguro? (Y)"); //Comprobacion de si el nombre es correcto
 
 			respuesta = scanL.nextLine();
 
@@ -54,9 +60,9 @@ public class Main {
 
 		}
 
-		System.out.println("\nQue clase eres?\n\n Guerrero\n Mago\n Ladron");
+		System.out.println("\nQue clase eres?\n\n Guerrero\n Mago\n Ladron"); //Lista de clases de aventurero
 
-		String clase = "";
+		String clase = ""; 
 
 		while (!clase.equalsIgnoreCase("Guerrero") && !clase.equalsIgnoreCase("Mago") && !clase.equalsIgnoreCase("Ladron")) clase = scanL.nextLine().toLowerCase();
 
@@ -64,11 +70,11 @@ public class Main {
 
 			System.out.println("\nQue nivel posees aventurero");
 
-			nivel = LeerInt();
+			nivel = LeerInt(); //Nivel inicial del aventurero?
 
 			System.out.println("\nCon que item quieres empezar?");
 
-			System.out.println("\n1 - Una pocion para mejorar tus hechizos\n2 - Un escudo de madera oscura\n3 - El anillo de invisibilidad");
+			System.out.println("\n1 - Una pocion para mejorar tus hechizos\n2 - Un escudo de madera oscura\n3 - El anillo de invisibilidad"); //Objetos basicos
 
 			int eleccionItem = Opciones(3);
 
@@ -102,7 +108,7 @@ public class Main {
 
 				GANDALF = new Mago(nombre, inv);
 
-				GANDALF.setNivelInicial(nivel);
+				GANDALF.setNivelInicial(nivel); //Dado el nivel que el usuario introduzca se ejecutara el bucle de Personaje el qual le aumentara x veces las stats
 
 				break;
 
@@ -155,7 +161,7 @@ public class Main {
 
 			System.out.println("\nBienvenido gran hechizero que quiere hacer?");
 
-			do {
+			do { //Mientras el aventurero no quiera salir seguira apareciendo este menu de opciones
 
 				System.out.println("\n1 - Lanzar Hechizo");
 
@@ -238,6 +244,8 @@ public class Main {
 
 				case 4:
 
+					//En caso del cofre misterioso el aventurero encontara con 3 objetos permanentes los quales se almacenaran en su inventario sin importar si ya los tiene en su poder
+
 					System.out.println("Abres el cofre lentamente y...");
 
 					System.out.println("No era un Mimic menos mal, te acercas a ver que esta dentro");
@@ -249,6 +257,8 @@ public class Main {
 					arma = Opciones(3);
 
 					switch (arma) {
+
+					//Decidimos que objeto agregar
 
 					case 1:
 
@@ -318,11 +328,13 @@ public class Main {
 
 				case 1:
 
-					GUERRERO.proteger(compaprueba);
+					GUERRERO.proteger(compaprueba); //Damos proteccion al compañero reduciendo su daño recibido a la mitad
 
 					System.out.println("El guerrero levanta su escudo frente a " + GUERRERO.estaProtegiendo().getNombre()); // Mostramos a quien estamos protegiendo
 
 					break;
+
+					//No tenemos funcion de daño para guerreroen el main
 
 				case 2:
 
@@ -417,7 +429,7 @@ public class Main {
 
 				case 1:
 
-					LADRON.robar();
+					LADRON.robar(); //Si esta invisible podra robar en caso contrario sera atrapado
 
 					break;
 
@@ -425,7 +437,7 @@ public class Main {
 
 					System.out.println("Ahora me ves, ahora no me ves");
 
-					LADRON.hacerseInvisible();
+					LADRON.hacerseInvisible(); //Se vuelve invisible o visible depende su estado actual
 
 					break;
 
@@ -433,7 +445,7 @@ public class Main {
 
 					System.out.println("Soy invisible?");
 
-					System.out.println(LADRON.estaInvisible());
+					System.out.println(LADRON.estaInvisible()); //Comprueba su estado
 
 					break;
 
@@ -498,16 +510,15 @@ public class Main {
 
 	}
 
-	private static int LeerInt() {
+	private static int LeerInt() {  //Mientras el usuario no escriba un numero valido seguira preguntando
 
-		while (true) {
+		while (true) { 
 
-			if (scanN.hasNextInt()) {
+			if (scanN.hasNextInt()) { //Es un numero
 
 				int nivel;
 
-				if ((nivel = scanN.nextInt()) > 0)
-					return nivel;
+				if ((nivel = scanN.nextInt()) > 0) return nivel;
 
 			} else {
 
@@ -517,7 +528,7 @@ public class Main {
 		}
 	}
 
-	private static int Opciones(int numeroDeOpciones) {
+	private static int Opciones(int numeroDeOpciones) { //Dado un numero de opciones el usuario introduce un numero desde 1 hasta la opción máxima
 
 		int opcion = 0;
 

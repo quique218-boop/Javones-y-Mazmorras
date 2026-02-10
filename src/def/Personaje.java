@@ -21,7 +21,7 @@ public abstract class Personaje {
 
 	private int dado;
 
-	public Personaje(String nombre) {
+	public Personaje(String nombre) { 
 
 		this.nombre = nombre;
 
@@ -33,7 +33,7 @@ public abstract class Personaje {
 
 		this.protegido = false;
 
-		this.inventario = new Inventario(new ArrayList<Equipamiento>());
+		this.inventario = new Inventario(new ArrayList<Equipamiento>()); //Creamos inventario vacio
 
 		this.dado = 10;
 
@@ -56,12 +56,12 @@ public abstract class Personaje {
 		this.dado = 10;
 	}
 
-	public String getNombre() {
+	public String getNombre() { //cogemos nombre
 
 		return this.nombre;
 	}
 
-	public void setNombre(String nombre) {
+	public void setNombre(String nombre) { //damos nombre
 
 		this.nombre = nombre;
 	}
@@ -111,7 +111,7 @@ public abstract class Personaje {
 		}
 	}
 
-	public Inventario getInventario() {
+	public Inventario getInventario() { //Devuelve lo que tenga el inventario
 
 		return this.inventario;
 
@@ -119,19 +119,19 @@ public abstract class Personaje {
 
 	public void agregarInventario(Equipamiento equipamiento) {
 
-		this.inventario.agregarEquipamiento(equipamiento);
+		this.inventario.agregarEquipamiento(equipamiento); //Agregamos algun objeto a inventario
 
 	}
 
 	public int getDado() {
-		return this.dado;
+		return this.dado; 
 	}
 
 	public void setDado(int dado) {
 		this.dado = dado;
 	}
 
-	public void mostrarInfo() {
+	public void mostrarInfo() { //Mostramos toda la informacion del usuario
 
 		System.out.println("Datos:\n " + "\nNombre del heroe: " + nombre + "\nNivel: " + nivel + "\nPuntos de vida : "
 				+ puntosVida + "\nEstado de protección: " + protegido);
@@ -140,9 +140,9 @@ public abstract class Personaje {
 
 	}
 
-	public void bajarVida(int cantidad) {
+	public void bajarVida(int cantidad) { 
 
-		if (cantidad <= 0) {
+		if (cantidad <= 0) { //Si el daño es menor que 0
 
 			System.out.println("El ataque no tuvo efecto");
 
@@ -152,13 +152,13 @@ public abstract class Personaje {
 
 		} else if (protegido == true) {
 
-			cantidad /= 2; // actualizo daño a la mitad
+			cantidad /= 2; // actualizo daño a la mitad en caso de que este protegido
 
 			puntosVida -= cantidad;
 
 		}
 
-		if (puntosVida <= 0) {
+		if (puntosVida <= 0) { //Si la vida del jugador es igual a 0 o menor
 
 			System.out.println("Has muerto");
 
@@ -168,13 +168,13 @@ public abstract class Personaje {
 
 	public void curar(int cantidad) {
 
-		if (puntosVida == vidaMax) {
+		if (puntosVida == vidaMax) { //En caso de que este a vida maxima
 
 			System.out.println("Vida al maximo, imposible de hacer el hechizo");
 
 		} else if (puntosVida + cantidad > vidaMax) {
 
-			this.puntosVida = vidaMax;
+			this.puntosVida = vidaMax; //Aunque se cure mas de la vida max solo generara hasta el maximo
 
 		} else if (cantidad > 0) {
 
@@ -182,7 +182,7 @@ public abstract class Personaje {
 
 			System.out.println("Salud restaurada");
 
-		} else {
+		} else { //Si el valor es incorrecto
 
 			System.out.println("No ha habido suficiente mana para el hechizo de curación");
 
@@ -192,14 +192,16 @@ public abstract class Personaje {
 
 	public void setNivelInicial(int nivel) {
 
-		for (int i = 1; i < nivel; i++) {
+		for (int i = 1; i < nivel; i++) { //Empezamos a nivel 1
 
-			int subidaVida = rand.nextInt(this.dado) + 1;
+			int subidaVida = rand.nextInt(this.dado) + 1; //Por cada subida de nibel se tirara un dado
 
-			System.out.println("Subes a nivel " + (i + 1) + " | Vida +" + subidaVida);
+			System.out.println("Subes a nivel " + (i + 1) + " | Vida +" + subidaVida); //Los resultados se sumaran a los stats actuales
 
 			System.out.println();
 
+			//Actualizamos nuestras stats
+			
 			this.nivel = nivel;
 
 			this.vidaMax += subidaVida;
