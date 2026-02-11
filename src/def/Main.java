@@ -443,18 +443,24 @@ public class Main {
 
 						System.out.println("Se ha restablecido " + curar + " de salud");
 
+						break;
+						
 					case 2: 
 
 						curar = 50;
 
 						System.out.println("Se ha restablecido " + curar + " de salud");
 
+						break;
+						
 					case 3:
 
 						curar = 100;
 
 						System.out.println("Se ha restablecido " + curar + " de salud");
 
+						break;
+						
 					}
 					
 					GUERRERO.curar(curar);
