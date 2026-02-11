@@ -71,8 +71,6 @@ public class Mago extends Personaje {
 			setNivel(nivel);
 
 			setVidaMax(getVidaMax() + subidaVida);
-
-			curar(getVidaMax());
 		}
 
 		this.mana = this.manaMax;
