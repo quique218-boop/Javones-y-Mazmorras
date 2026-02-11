@@ -45,8 +45,8 @@ Contiene:
 * Constructores: Personaje(String nombre), Personaje(String nombre, Inventario inventario).
 * Getters y Setters para sus respectivas variables.
 * mostrarInfo() Devuelve los datos del personaje en un print (nombre, nivel, puntos de vida, estado de protección).
-* bajarVida(int cantidad) Compara la vida actual y la reduce mientras el numero introducido no sea 0 o menor, en ese caso no se resta nada. En caso de estar protegido el daño se divide en 2. Si llega a 0 después del ataque se indica en un print.
-* curar(int cantidad) Recibe un numero y mientras sea mayor de 0 y el personaje no tenga ya el máximo de vida, se cura hasta el máximo.
+* bajarVida(int cantidad) Compara la vida actual y la reduce mientras el número introducido no sea 0 o menor, en ese caso no se resta nada. En caso de estar protegido el daño se divide en 2. Si llega a 0 después del ataque se indica en un print.
+* curar(int cantidad) Recibe un número y mientras sea mayor de 0 y el personaje no tenga ya el máximo de vida, se cura hasta el máximo.
 * setNivelInicial(int nivel) Sube el nivel del personaje hasta el indicado, subiendo su estadística de vidaMax por nivel. Aquí es donde se usa la variable dado, sirve para tener un valor máximo como si fuera un dado para la subida de vidaMax.
 
 
@@ -69,7 +69,7 @@ Contiene:
 * Establece la variable dado = 6;
 * Constructores: Mago(String nombre), Mago(String nombre, Inventario inventario).
 * Getters y Setters para sus nuevas variables.
-* Override: Usamos un override de setNivelInicial para añadir en la función el mana para poderla escalar con el nivel.
+* Override: Usamos un override de setNivelInicial para añadir en la función el maná para poderla escalar con el nivel.
 * LanzarHechizo(int costeMana) Comprueba que tengas suficiente mana para lanzar y lo lanza si tienes suficiente.
 
 
@@ -87,7 +87,8 @@ La clase Guerrero hereda de personaje y añade 1 variable y cambia el valor de u
 * Variable nueva: Personaje companeroProtegido.
 * Establece la variable vidaMax = 200.
 * Constructores: Guerrero(String nombre), Guerrero(String nombre, Inventario inventario).
-* proteger(Personaje compañero) comprueba que el compañero sea nulo, si lo es entonces establece la variable de protegido actual a ese compañero. Tambien establece a ese compañero su variable interna de estar protegido.
+* Getter y Setter para su variable.
+* proteger(Personaje compañero) comprueba que el compañero sea nulo, si lo es entonces establece la variable de protegido actual a ese compañero. También establece a ese compañero su variable interna de estar protegido.
 * dejarDeProteger() Comprueba que el compañero no sea nulo y cambia su variable interna a falso. También cambia el compañero protegido actual a nulo.
 * estaProtegiendo() Simplemente devuelve a quien protege.
 
@@ -106,6 +107,40 @@ La clase Ladron hereda de personaje y añade 1 variable y cambia el valor de una
 * Variable nueva: boolean invisible.
 * Establece la variable dado = 8;
 * Constructores: Ladron(String nombre), Ladron(String nombre, Inventario inventario).
+* Getter y Setter para su variable.
 * robar() Simplemente comprueba si eres invisible o no e imprime un texto u otro dependiendo del estado.
 * hacerseInvisible() Es un toggle para la invisibilidad, cambia el estado de uno al otro dependiendo del estado.
 * estaInvisible() Devuelve el estado actual.
+
+
+
+
+
+# === Equipamiento ===
+
+
+
+La clase Equipamiento sirve para definir el equipamiento para poder ser añadido al inventario.
+
+
+
+* Variables: String nombre, String tipo.
+* Constructor: Equipamiento(String nombre, String tipo)
+* Getters y Setters para sus variables.
+
+
+
+
+
+# === Inventario ===
+
+
+
+La clase Inventario sirve para guardar todos los equipamientos que consigan los jugadores. Para poder usar el objeto tienes que declararlo añadiendo el ArrayList de Equipamiento vacío que necesita el constructor ==> Inventario x = new Inventario(new ArrayList<Equipamiento>()); por lo que necesitas importar ArrayList en la clase en la que lo declares para usarlo.
+
+
+
+* Variable: ArrayList<Equipamiento> equipamiento.
+* Constructor: Inventario(ArrayList<Equipamiento> equipamiento).
+* agregarEquipamiento(Equipamiento equipamiento) Añade a la lista el equipamiento indicado.
+* mostrarInventario() Imprime en pantalla todos los elementos de la lista.
