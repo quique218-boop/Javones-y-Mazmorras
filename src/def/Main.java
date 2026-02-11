@@ -342,8 +342,6 @@ public class Main {
 
 					break;
 
-					//No tenemos funcion de daño para guerreroen el main
-
 				case 2:
 
 					GUERRERO.dejarDeProteger();
