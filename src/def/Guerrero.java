@@ -30,6 +30,8 @@ public class Guerrero extends Personaje {
 		if (this.companeroProtegido == null) {
 
 			this.companeroProtegido = companero;
+			
+			companero.setProtegido(true);
 
 		} else {
 			
@@ -43,6 +45,9 @@ public class Guerrero extends Personaje {
 	// Cambia el valor a null y envia un texto de advertencia.
 	
 	public void dejarDeProteger() {
+		
+		this.companeroProtegido.setProtegido(false);
+		
 		this.companeroProtegido = null;
 
 		System.out.println("Has dejado de protejer a tu compañero\n");
