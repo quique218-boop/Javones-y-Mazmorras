@@ -19,6 +19,8 @@ El proyecto usa 6 o 7 clases si contamos el main siendo estas:
 
 
 
+# --- Main ---
+
 
 
 El Main contiene todo una serie de preguntas para utilizar las diferentes funciones creadas de manera que sea más parecida a una aventura real de dragones y mazmorras.
@@ -88,3 +90,22 @@ La clase Guerrero hereda de personaje y añade 1 variable y cambia el valor de u
 * proteger(Personaje compañero) comprueba que el compañero sea nulo, si lo es entonces establece la variable de protegido actual a ese compañero. Tambien establece a ese compañero su variable interna de estar protegido.
 * dejarDeProteger() Comprueba que el compañero no sea nulo y cambia su variable interna a falso. También cambia el compañero protegido actual a nulo.
 * estaProtegiendo() Simplemente devuelve a quien protege.
+
+
+
+
+
+# === Ladron ===
+
+
+
+La clase Ladron hereda de personaje y añade 1 variable y cambia el valor de una.
+
+
+
+* Variable nueva: boolean invisible.
+* Establece la variable dado = 8;
+* Constructores: Ladron(String nombre), Ladron(String nombre, Inventario inventario).
+* robar() Simplemente comprueba si eres invisible o no e imprime un texto u otro dependiendo del estado.
+* hacerseInvisible() Es un toggle para la invisibilidad, cambia el estado de uno al otro dependiendo del estado.
+* estaInvisible() Devuelve el estado actual.
