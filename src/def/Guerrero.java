@@ -31,6 +31,8 @@ public class Guerrero extends Personaje {
 
 			this.companeroProtegido = companero;
 			
+			// Cambia la variable interna de ese personaje.
+			
 			companero.setProtegido(true);
 
 		} else {
@@ -46,7 +48,9 @@ public class Guerrero extends Personaje {
 	
 	public void dejarDeProteger() {
 		
-		this.companeroProtegido.setProtegido(false);
+		// Evita que intente cambiar la variable de un compañero null y si no es null entonces cambia la variable de ese compañero a falso.
+		
+		if(this.companeroProtegido != null) this.companeroProtegido.setProtegido(false);
 		
 		this.companeroProtegido = null;
 
