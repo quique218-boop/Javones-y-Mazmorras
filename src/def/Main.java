@@ -399,7 +399,7 @@ public class Main {
 
 					System.out.println("Que tipo de ataque es? \n 1 - Ataque basico \n 2 - Ataque especial ");
 
-					int at = scanN.nextInt();
+					int at = Opciones(2);
 
 					switch (at) {
 
@@ -431,7 +431,7 @@ public class Main {
 
 					System.out.println("Que poción de curación quieres? \n 1 - Pequeña \n 2 - Mediana \n 3 - Grande");
 
-					int pocion = scanN.nextInt();
+					int pocion = Opciones(3);
 
 					switch(pocion) {
 
