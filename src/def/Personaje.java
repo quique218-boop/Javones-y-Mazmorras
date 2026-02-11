@@ -161,6 +161,7 @@ public abstract class Personaje {
 		if (puntosVida <= 0) { //Si la vida del jugador es igual a 0 o menor
 
 			System.out.println("Has muerto");
+			
 
 		}
 
@@ -175,6 +176,8 @@ public abstract class Personaje {
 		} else if (puntosVida + cantidad > vidaMax) {
 
 			this.puntosVida = vidaMax; //Aunque se cure mas de la vida max solo generara hasta el maximo
+			
+			System.out.println("Salud restaurada al máximo");
 
 		} else if (cantidad > 0) {
 
@@ -184,7 +187,7 @@ public abstract class Personaje {
 
 		} else { //Si el valor es incorrecto
 
-			System.out.println("No ha habido suficiente mana para el hechizo de curación");
+			System.out.println("No hemos encontrado la poción");
 
 		}
 

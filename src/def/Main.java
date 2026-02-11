@@ -28,6 +28,10 @@ public class Main {
 
 		int nivel = 1;
 
+		int daño = 0;
+
+		int curar = 0;
+
 		System.out.println("\n==== Bienvenidos a JAVONES Y MAZMORRAS ====\n");
 
 		System.out.println("Que tipo de aventura quieres?\n");
@@ -171,7 +175,7 @@ public class Main {
 
 				System.out.println("4 - Abrir cofre misterioso");
 
-				System.out.println("5- Mostrar Info");
+				System.out.println("5 - Mostrar Info");
 
 				System.out.println("6 - Salir\n");
 
@@ -318,11 +322,15 @@ public class Main {
 
 				System.out.println("4 - Abrir cofre misterioso");
 
-				System.out.println("5- Mostrar Info");
+				System.out.println("5 - Recibir ataque");
+				
+				System.out.println("6 - Restaurar salud");
 
-				System.out.println("6 - Salir\n");
+				System.out.println("7 - Mostrar Info");
 
-				des = Opciones(6);
+				System.out.println("8 - Salir\n");
+
+				des = Opciones(8);
 
 				switch (des) {
 
@@ -389,11 +397,75 @@ public class Main {
 
 				case 5:
 
+					System.out.println("El guerrero se prepara para recibir el ataque");
+
+					System.out.println("Que tipo de ataque es? \n 1 - Ataque basico \n 2 - Ataque especial ");
+
+					int at = scanN.nextInt();
+
+					switch (at) {
+
+					case 1:
+
+						daño = 20;
+
+						break;
+
+					case 2:
+
+						daño = 40;
+
+						break;
+
+					}
+
+					GUERRERO.bajarVida(daño);
+					
+					if(GUERRERO.getPuntosVida() > 0) {
+						
+						System.out.println("Tu determinación te ha permitido aguantar el golpe");
+						
+					}					
+
+					break;
+					
+				case 6:
+
+					System.out.println("Que poción de curación quieres? \n 1 - Pequeña \n 2 - Mediana \n 3 - Grande");
+
+					int pocion = scanN.nextInt();
+
+					switch(pocion) {
+
+					case 1:
+
+						curar = 25;
+
+						System.out.println("Se ha restablecido " + curar + " de salud");
+
+					case 2: 
+
+						curar = 50;
+
+						System.out.println("Se ha restablecido " + curar + " de salud");
+
+					case 3:
+
+						curar = 100;
+
+						System.out.println("Se ha restablecido " + curar + " de salud");
+
+					}
+					
+					GUERRERO.curar(curar);
+
+				case 7:
+
 					GUERRERO.mostrarInfo();
 
 					break;
 
-				case 6:
+				case 8:
 
 					System.out.println("\nAdios caballero");
 
@@ -401,7 +473,7 @@ public class Main {
 
 				}
 
-			} while (des != 6);
+			} while (des != 8 && GUERRERO.getPuntosVida() > 0);
 
 			break;
 
