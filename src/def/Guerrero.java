@@ -12,7 +12,7 @@ public class Guerrero extends Personaje {
 	public Guerrero(String nombre) {
 		super(nombre);
 		super.setVidaMax(this.vidaMax);
-		super.curar(this.vidaMax);
+		super.setPuntosVida(this.vidaMax);
 		this.companeroProtegido = null;
 	}
 	
