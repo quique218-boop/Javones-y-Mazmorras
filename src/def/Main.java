@@ -346,8 +346,6 @@ public class Main {
 
 					GUERRERO.dejarDeProteger();
 
-					System.out.println("Actualmente estas protegiendo a : " + GUERRERO.estaProtegiendo().getNombre());
-
 					break;
 
 				case 3:

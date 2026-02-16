@@ -50,11 +50,15 @@ public class Guerrero extends Personaje {
 		
 		// Evita que intente cambiar la variable de un compañero null y si no es null entonces cambia la variable de ese compañero a falso.
 		
-		if(this.companeroProtegido != null) this.companeroProtegido.setProtegido(false);
+		if(this.companeroProtegido != null) { this.companeroProtegido.setProtegido(false);
 		
 		this.companeroProtegido = null;
 
 		System.out.println("Has dejado de protejer a tu compañero\n");
+		}
+		else {
+			System.out.println("Has dejado de protejer a tu compañero\n");
+		}
 	}
 	
 	// Devuelve a que compañero esta protegiendo o null si no hay ninguno.
