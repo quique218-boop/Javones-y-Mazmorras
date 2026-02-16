@@ -57,7 +57,7 @@ public class Guerrero extends Personaje {
 		System.out.println("Has dejado de protejer a tu compañero\n");
 		}
 		else {
-			System.out.println("Has dejado de protejer a tu compañero\n");
+			System.out.println("Ahora mismo no estás protegiendo a nadie\n");
 		}
 	}
 	

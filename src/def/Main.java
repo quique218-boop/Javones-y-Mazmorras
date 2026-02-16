@@ -346,11 +346,22 @@ public class Main {
 
 					GUERRERO.dejarDeProteger();
 
+
 					break;
 
 				case 3:
+					
+					if(GUERRERO.estaProtegiendo()!=null) {
 
 					System.out.println("Actualmente estas protegiendo a : " + GUERRERO.estaProtegiendo().getNombre());
+					
+					}
+					
+					else {
+						
+						System.out.println("Aun no estás protegiendo a nadie");
+						
+					}
 
 					break;
 
