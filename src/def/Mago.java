@@ -55,7 +55,8 @@ public class Mago extends Personaje {
 		this.manaMax = manaMax;
 
 	}
-
+	
+	@Override
 	public void setNivelInicial(int nivel) {
 
 		for (int i = 1; i < nivel; i++) {
